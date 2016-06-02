@@ -1,16 +1,15 @@
-//BASIC EXAMPLE USAGE
-
 <?php
+//First make sure to check mysqlconnect.php file!
 require("userMgr.php"); //Include user manager module
 ?>
 
-//CREATE LOGIN FORM-----------------------------------------------------
-<form method='post'> //Use post method for validation
-  <input type='text' name='username'/> //Username field
-  <input type='password' name='password'/> //Password field
+<!--CREATE LOGIN FORM------------------------------------------------------->
+<form method='post'>
+  Username: <input type='text' name='username'/>
+  Password: <input type='password' name='password'/>
   <input type='submit' name='login' value='Login'/> //Login button
 </form>
-------------------------------------------------------------------------
+<!------------------------------------------------------------------------>
 <?php
 if(isset($_POST['login'])) //Check if login button is pressed
 {
