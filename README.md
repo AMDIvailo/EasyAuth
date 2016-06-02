@@ -1,5 +1,5 @@
 # EasyAuth
-Easy to use php login and user system. 
+Easy to use php login and user system.  
 TODO: 
   - Advanced usage example 
   - Register system 
