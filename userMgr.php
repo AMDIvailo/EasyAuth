@@ -28,5 +28,15 @@ class UserMgr
 			return false;
 		}
 	}
+	function register($username, $password, $email, $debug = false)
+	{
+		global $connection;
+		$_register = "insert into $table(username, password, email) values($username, $password, $email)";
+		$register = mysqli_query($connection, $_register);
+		if($debug == true)
+		{
+			echo $_register;
+		}
+	}
 } 
 ?>
