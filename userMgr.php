@@ -43,7 +43,7 @@ class UserMgr
 	{
 		if(isset($_SESSION['isLogged']))
 		{
-			if($_SESSION['isLogged'] == true && $_SESSION['username'] != null;)
+			if($_SESSION['isLogged'] == true && $_SESSION['username'] != null)
 			{
 				return true;
 			}
