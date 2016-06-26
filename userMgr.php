@@ -39,5 +39,23 @@ class UserMgr
 			echo $_register;
 		}
 	}
+	function sessionExists()
+	{
+		if(isset($_SESSION['isLogged']))
+		{
+			if($_SESSION['isLogged'] == true && $_SESSION['username'] != null;)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
 } 
 ?>
