@@ -57,5 +57,26 @@ class UserMgr
 			return false;
 		}
 	}
+	function userExists($username, $debug=false)
+	{
+		global $table;
+		global $connection;
+		$_userExists = "select * from $table where username = $username";
+		if($debug == true)
+		{
+			print $_userExists;
+		}
+		$userExists = mysqli_query($connection, $_userExists);
+		$UserExists = mysqli_fetch_assoc($userExists);
+		if($UserExists)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}
 } 
 ?>
