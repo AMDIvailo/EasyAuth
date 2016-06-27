@@ -29,6 +29,7 @@ class User
 
 	function getUserId()
 	{
+		global $table;
 		global $connection;
 		$username = $this->getUserName();
 		$_getuserid = "select * from $table where username=\"$username\"";
