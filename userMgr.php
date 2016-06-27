@@ -61,7 +61,7 @@ class UserMgr
 	{
 		global $table;
 		global $connection;
-		$_userExists = "select * from $table where username = $username";
+		$_userExists = "select * from $table where username = \"$username\"";
 		if($debug == true)
 		{
 			print $_userExists;
