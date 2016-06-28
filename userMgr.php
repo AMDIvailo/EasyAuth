@@ -59,24 +59,61 @@ class UserMgr
 	}
 	function userExists($username, $debug=false)
 	{
+		if($username != "")
 		global $table;
 		global $connection;
 		$_userExists = "select * from $table where username = \"$username\"";
 		if($debug == true)
 		{
-			print $_userExists;
-		}
-		$userExists = mysqli_query($connection, $_userExists);
-		$UserExists = mysqli_fetch_assoc($userExists);
-		if($UserExists)
-		{
-			return true;
+			global $table;
+			global $connection;
+			$_userExists = "select * from $table where username = \"$username\"";
+			if($debug == true)
+			{
+				print $_userExists;
+			}
+			$userExists = mysqli_query($connection, $_userExists);
+			$UserExists = mysqli_fetch_assoc($userExists);
+			if($UserExists)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
 		
+	}
+	function idToUsername($id, $debug=false)
+	{
+		global $table;
+		global $connection;
+		$_idToUsername = "select * from $table where id=$id";
+		if($debug == true)
+		{
+			print $_idToUsername;
+		}
+		$idToUsername = mysqli_query($connection, $_idToUsername);
+		$IdToUsername = mysqli_fetch_assoc($idToUsername);
+		return $IdToUsername['username'];
+	}
+	function usernameToId($username, $debug=false)
+	{
+		global $table;
+                global $connection;
+                $_usernameToId = "select * from $table where username=$username";
+                if($debug == true)
+                {
+                        print $_usernameToId;
+                }
+                $usernameToId = mysqli_query($connection, $_idToUsername);
+                $UsernameToId = mysqli_fetch_assoc($idToUsername);
+                return $UsernameToId['id'];
 	}
 } 
 ?>
