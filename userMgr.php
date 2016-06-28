@@ -60,10 +60,6 @@ class UserMgr
 	function userExists($username, $debug=false)
 	{
 		if($username != "")
-		global $table;
-		global $connection;
-		$_userExists = "select * from $table where username = \"$username\"";
-		if($debug == true)
 		{
 			global $table;
 			global $connection;
