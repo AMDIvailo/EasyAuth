@@ -62,11 +62,11 @@ class UserMgr
 	}
 	function userExists($username, $debug=false)
 	{
+		global $table;
+		global $connection;
 		$Username = mysqli_real_escape_string($connection, $username);
 		if($Username != "")
 		{
-			global $table;
-			global $connection;
 			$_userExists = "select * from $table where username = \"$Username\"";
 			if($debug == true)
 			{
