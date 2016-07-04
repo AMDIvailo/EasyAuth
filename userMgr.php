@@ -32,7 +32,10 @@ class UserMgr
 	{
 		global $connection;
 		global $table;
-		$_register = "insert into $table(username, password, email) values(\"$username\", \"$password\", \"$email\")";
+		$Username = mysqli_real_escape_string($connection, $username);
+		$Password = mysqli_real_escape_string($connection, $password);
+		$Email    = mysqli_real_escape_string($connection, $email);
+		$_register = "insert into $table(username, password, email) values(\"$Username\", \"$Password\", \"$Email\")";
 		$register = mysqli_query($connection, $_register);
 		if($debug == true)
 		{
@@ -59,11 +62,12 @@ class UserMgr
 	}
 	function userExists($username, $debug=false)
 	{
-		if($username != "")
+		$Username = mysqli_real_escape_string($connection, $username);
+		if($Username != "")
 		{
 			global $table;
 			global $connection;
-			$_userExists = "select * from $table where username = \"$username\"";
+			$_userExists = "select * from $table where username = \"$Username\"";
 			if($debug == true)
 			{
 				print $_userExists;
@@ -89,7 +93,8 @@ class UserMgr
 	{
 		global $table;
 		global $connection;
-		$_idToUsername = "select * from $table where id=$id";
+		$Id = mysqli_real_escape_string($connection, $id);
+		$_idToUsername = "select * from $table where id=$Id";
 		if($debug == true)
 		{
 			print $_idToUsername;
@@ -102,7 +107,8 @@ class UserMgr
 	{
 		global $table;
                 global $connection;
-                $_usernameToId = "select * from $table where username=$username";
+                $Username = mysqli_real_escape_string($connection, $username);
+                $_usernameToId = "select * from $table where username=$Username";
                 if($debug == true)
                 {
                         print $_usernameToId;
