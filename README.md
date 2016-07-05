@@ -4,5 +4,5 @@ TODO:
   - Advanced usage example 
   - ~~Register system~~ 
   - ~~Check for account existance~~
-  - Improve security 
+  - ~~Improve security~~ 
   - Clean up and comment code
