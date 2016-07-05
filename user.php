@@ -5,7 +5,8 @@ class User
 	private $Username = null;
 	function __construct($username)
 	{
-		$this->Username = $username;
+		global $connection;
+		$this->Username = mysqli_real_escape_string($connection, $username);
 	}
 
 	function getUserName()
