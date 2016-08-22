@@ -58,5 +58,16 @@ class User
 			return false;
 		}
 	}
+
+	function getEmail()
+	{
+		global $table;
+		global $connection;
+		$username = $this->getUserName();
+		$_getemail = "select * from $table where username=\"$username\"";
+		$getemail = mysqli_query($connection, $_getemail);
+		$Getemail = mysqli_fetch_assoc($getemail);
+		rerutn $Getemail['email'];
+	}
 }
 ?>
