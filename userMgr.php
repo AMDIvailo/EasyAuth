@@ -89,6 +89,35 @@ class UserMgr
 		}
 		
 	}
+	function userExistsById($id, $debug=false)
+	{
+                global $table;
+		global $connection;
+		$Id = mysqli_real_escape_string($connection, $id);
+		if($Id != "")
+            	{
+                     	$_userExistsById = "select * from $table where id = \"$Id\"";
+			if($debug == true)
+                       	{
+                        	 print $_userExistsById;
+                       	}
+                       	$userExistsById = mysqli_query($connection, $_userExistsById);
+                      	$UserExistsById = mysqli_fetch_assoc($userExistsById);
+                       	if($UserExistsById)
+                      	{
+                        	return true;
+                       	}
+                       	else
+                       	{
+                              	return false;
+                      	}
+               	}
+              	else
+               	{
+                     	return false;
+               	}
+ 
+     	}
 	function idToUsername($id, $debug=false)
 	{
 		global $table;
@@ -108,13 +137,13 @@ class UserMgr
 		global $table;
                 global $connection;
                 $Username = mysqli_real_escape_string($connection, $username);
-                $_usernameToId = "select * from $table where username=$Username";
+                $_usernameToId = "select * from $table where username=\"$Username\"";
                 if($debug == true)
                 {
                         print $_usernameToId;
                 }
-                $usernameToId = mysqli_query($connection, $_idToUsername);
-                $UsernameToId = mysqli_fetch_assoc($idToUsername);
+                $usernameToId = mysqli_query($connection, $_usernameToId);
+                $UsernameToId = mysqli_fetch_assoc($usernameToId);
                 return $UsernameToId['id'];
 	}
 } 
