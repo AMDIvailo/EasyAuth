@@ -67,7 +67,7 @@ class User
 		$_getemail = "select * from $table where username=\"$username\"";
 		$getemail = mysqli_query($connection, $_getemail);
 		$Getemail = mysqli_fetch_assoc($getemail);
-		rerutn $Getemail['email'];
+		return $Getemail['email'];
 	}
 }
 ?>
